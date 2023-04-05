@@ -19,7 +19,7 @@ async function verifyToken(token) {
             return {validate:true, cif:cif};
         }
         else{
-            return {validate:false, cif:cif};
+            return {validate:false};
         }
      }
     } catch (err) {
