@@ -1,5 +1,5 @@
 const {connection} = require("../config/configdb");
-const mysql = require('mysql2') // built-in promise functionality
+const mysql = require('mysql2')
 const conn = mysql.createConnection(connection)
 const exitsCif = async (cif) => {
    result = await conn.promise().query(`SELECT * FROM usuarios WHERE cif = ?`, [cif]);
