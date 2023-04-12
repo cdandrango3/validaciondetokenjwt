@@ -1,6 +1,11 @@
 const express = require("express");
+
 const validateJwt = require("./service/validator");
 const getCostumer = require("./service/getuser").getClient;
+const {
+  getUserDeUnaAll,
+  getUserByPhone,
+} = require("./controller/userController");
 const app = express();
 const port = 3000;
 app.use(express.json());
@@ -42,13 +47,16 @@ app.post("/getCostumer", async (req, res) => {
         res.status(200).send(dataUser);
       } else {
         res.status(401).send(result);
-        console.log("aqui")
+        console.log("aqui");
       }
     }
   } catch (err) {
     res.status(401).send({ validate: false });
   }
 });
+app.get("/allUser", getUserDeUnaAll);
+app.post("/getUserByPhone", getUserByPhone);
+
 app.listen(port, () => {
   console.log(`API escuchando en el puerto ${port}`);
 });
