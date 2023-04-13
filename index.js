@@ -44,7 +44,7 @@ app.post("/getCostumer", async (req, res) => {
       const result = await validateJwt(token);
       if (result.validate) {
         const dataUser = await getCostumer(result.cif);
-        res.status(200).send(dataUser);
+        res.status(200).send({validate:result.validate,data:dataUser});
       } else {
         res.status(401).send(result);
         console.log("aqui");
