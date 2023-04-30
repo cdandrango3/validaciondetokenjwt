@@ -5,7 +5,6 @@ try{
   const dataUser = await getCostumer(Cif);
   if (dataUser && dataUser.data.documentNumber) {
     const dataBank = await getDataBank(dataUser.data.documentNumber);
-    console.log(dataUser)
     if (dataBank ){
     return {
       customer: {

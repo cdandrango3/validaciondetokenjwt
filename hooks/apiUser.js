@@ -30,7 +30,8 @@ async function getCostumer(Cif) {
     );
     return remplazarSlashporNada(dataDecrypt(response.data));
   } catch (error) {
-    console.log(error);
+    console.log(error)
+    throw new Error("no se a podido conseguir el usuario")
   
   }
 }
@@ -52,7 +53,8 @@ async function getDataBank(CI) {
     );
     return response.data;
   } catch (error) {
-    console.log(error);
+    console.log(error)
+    throw new Error("no se a podido conseguir el banco")
    
   }
 }
